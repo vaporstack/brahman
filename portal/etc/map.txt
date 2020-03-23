@@ -1,0 +1,39 @@
+
+
+
+RRDDCCHHFFBBGGEEAA
+
+KKLLQQJJNNPPIIMMOO
+
+
+1 6 7 2 4 8 3 5 9
+
+row 1
+18,4,3,8,6,2,7,5,1,11,12,17,10,14,16,9,13,15
+portal18
+portal04
+portal03
+
+portal08
+portal06
+portal02
+
+portal07
+portal05
+portal01
+
+portal11
+portal12
+portal17
+
+portal10
+portal14
+portal16
+
+portal09
+portal13
+portal15
+
+
+map no portals
+18 4 3 8 6 2 7 5 1 11 12 17 10 14 16 9 13 15

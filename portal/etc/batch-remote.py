@@ -15,7 +15,8 @@ if __name__ == "__main__":
 		dst = "portal%02d" % (1+i)
 		#cmd = "rsync -avze ssh --exclude='*.app' --exclude='.DS_Store' ~/personal/sync/#projects/brahman/portal/media/ %s:~/media &" %  dst
 		#cmd = "ssh %s sudo apt-get install -y mplayer" % dst
-		cmd = "ssh %s sudo apt-get install -y xscreensaver" % dst
+		cmd = "ssh %s sudo apt-get install -y autojump" % dst
+		cmd = "ssh %s sudo apt-get install -y mpv" % dst
 		#cmd = "ssh %s sudo reboot" % dst
 		os.system(cmd)
 		#print(dst)
