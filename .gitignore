@@ -9,3 +9,5 @@ manifest.json
 
 *.sublime-workspace
 
+portal/etc/gen/*
+
