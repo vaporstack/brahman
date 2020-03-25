@@ -81,7 +81,7 @@ def split_video(path=None):
 			# the hostnames already make no sense in regards to the physical map
 			filename = "%s-%d.%s" % (truncated_output, idx, output_ext)
 			command = cmd_template.format(x, y, filename)
-			# print(command)
+			print(command)
 			os.system(command)
 
 
