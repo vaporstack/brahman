@@ -22,7 +22,7 @@ def split_video(path=None):
 	name = os.path.basename(path)
 	trunk, ext = os.path.splitext(name)
 	sanitized = sanitize_filename(trunk)
-	output_name = sanitized[:32]
+	truncated_output = sanitized[:32]
 
 	height = vid.get(cv2.CAP_PROP_FRAME_HEIGHT)
 	width = vid.get(cv2.CAP_PROP_FRAME_WIDTH)
@@ -31,7 +31,7 @@ def split_video(path=None):
 	print("height", height)
 	print("video ratio:", ratio)
 	# one side of portal is 6x3
-
+	output_ext = "mp4"
 	size_x = 1280
 	size_y = 720
 
@@ -66,15 +66,22 @@ def split_video(path=None):
 
 	# tvs are indexed by reading sequences
 	# w:h:x:y out.mp4
+
 	cmd_template = 'ffmpeg -i {} -vf "crop={}:{}' \
 					.format('"' + path + '"', frame_width, frame_height) \
-					 + ':{}:{}" grid_video/{}.mp4'
+					 + ':{}:{}" grid_video/{}'
+
 
 	for x_indx in range(6):
 		for y_indx in range(3):
 			x = x_indx * (frame_width + border_width)
 			y = y_indx * (frame_height + border_height)
-			command = cmd_template.format(x, y, 3 * x_indx + y_indx)
+			idx = 3 * x_indx + y_indx
+			# should we have our index correspond with our hostname? no, that's confusing since
+			# the hostnames already make no sense in regards to the physical map
+			filename = "%s-%d.%s" % (truncated_output, idx, output_ext)
+			command = cmd_template.format(x, y, filename)
+			# print(command)
 			os.system(command)
 
 
